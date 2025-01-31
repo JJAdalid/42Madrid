@@ -1,2 +1,2 @@
 # 42Madrid
-Repo de Cursus 42Madrids
+Repo de Cursus 42Madrid
