@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:27:59 by juanje            #+#    #+#             */
-/*   Updated: 2025/01/30 14:04:12 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:27:58 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ char	**ft_split(char const *s, char c)
 	unsigned int	j;
 	unsigned int	words;
 
-	words = count_words(s, c);
 	if (!s)
 		return (0);
+	words = count_words(s, c);
 	tab = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (0);
@@ -92,14 +92,17 @@ char	**ft_split(char const *s, char c)
 	{
 		tab[i] = get_words(&j, s, c);
 		if (!tab[i])
+		{
 			free_ft(tab, i);
+			return (0);
+		}
 		i++;
 	}
 	tab[words] = 0;
 	return (tab);
 }
-/* 
-int main(int argc, char **argv) {
+
+/* int main(int argc, char **argv) {
     if (argc < 3) {
         printf("Uso: %s <cadena> <delimitador>\n", argv[0]);
         return 1;
@@ -109,7 +112,7 @@ int main(int argc, char **argv) {
     char c = argv[2][0];
 
     char **tab = ft_split(cadena, c);
-
+	
     if (tab) {
         for (int i = 0; tab[i] != NULL; i++) {
             printf("Parte %d: %s\n", i, tab[i]);

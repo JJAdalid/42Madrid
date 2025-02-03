@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:37:02 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/01/30 13:21:16 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:26:41 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,25 +72,24 @@ char	*ft_itoa(int n)
 	return (temp);
 }
 
-// int main(int argc, char **argv)
-// {
-//     if (argc != 2) 
-//     {
-//         printf("Usage: %s <number>\n", argv[0]);
-//         return 1;
-//     }
-//     int num = atoi(argv[1]);  
-//     char *str = ft_itoa(num);  
+/* int	main(int argc, char **argv)
+{
+    if (argc != 2)
+    {
+    	printf("Usage: %s <number>\n", argv[0]);
+    	return 1;
+    }
+    int num = atoi(argv[1]);
+    char *str = ft_itoa(num);
 
-//     if (str) 
-//     {
-//         printf("Número como cadena: %s\n", str);
-//         free(str);
-//     }
-//     else
-//     {
-//         printf("Error al convertir el número.\n");
-//     }
-
-//     return 0;
-// }
+	if (str) 
+    {
+    	printf("Número como cadena: %s\n", str);
+		free(str);
+    }
+    else
+    {
+    	printf("Error al convertir el número.\n");
+    	return 0;
+	}
+} */
