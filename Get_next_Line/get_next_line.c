@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:18:43 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/13 21:15:38 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:13:08 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,14 @@ char	*ft_readfile(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer = NULL;
 	char		*line;
 
-	//buffer = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	if ((buffer && !ft_strchr(buffer, '\n')) || !buffer)
 	{
-		printf("Voy a leer \n");
+		printf("Voy a redfile \n");
 		buffer = ft_readfile(fd, buffer);
 	}
 	if (!buffer)
@@ -207,22 +206,20 @@ int	main(void)
 	int		fd;
 	char	*line = NULL;
 	int		i = 0;
-	
+
 	fd = open("prueba.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("ERROR AL ABRIR EL ARCHIVO");
 		return (1);
 	}
-	
-	while (i < 2)
+	while (i < 5)
 	{
 		line = get_next_line(fd);
 		printf("%s", line);
 		free(line);
 		i++;
 	}
-	
 	close(fd);
 	return (0);
 }
