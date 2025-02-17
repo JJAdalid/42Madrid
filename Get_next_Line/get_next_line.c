@@ -6,7 +6,7 @@
 /*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:18:43 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/16 21:13:08 by juanje           ###   ########.fr       */
+/*   Updated: 2025/02/17 22:03:23 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ char	*ft_free(char **buffer)
 	*buffer = NULL;
 	return (NULL);
 }
+
+//Funcion que se encarga de limpiar buffer
+char	*ft_upload_buffer(char *buffer)
+{
+	char	*new_buffer;
+	char	*pos;
+	int		len;
+
+	pos = ft_strchr(buffer, '\n');
+	if (!pos)
+	{
+		new_buffer = NULL;
+		return (ft_free(&buffer));
+	}
+	len = ft_strlen(buffer) - (pos - buffer + 1);
+	new_buffer = ft_substr(buffer, pos - buffer + 1, len);
+	ft_free(&buffer);
+	return (new_buffer);
+}
+
 
 //Lee el buffer hassta '\n' si lo hay y devuelve linea
 char	*ft_getline(char *buffer)
@@ -53,7 +73,6 @@ char	*ft_readfile(int fd, char *buffer)
 
 	by_read = 1;
 	temp_buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-
 	while (by_read > 0 && !ft_strchr(buffer, '\n'))
 	{
 		printf("Estoy leyendo \n");
@@ -97,7 +116,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	//hacer que lo de buffer se libere para guardar la nueva line si la hay
-	
+	buffer = ft_upload_buffer(buffer);
 	return (line);
 }
 
@@ -205,7 +224,6 @@ int	main(void)
 {
 	int		fd;
 	char	*line = NULL;
-	int		i = 0;
 
 	fd = open("prueba.txt", O_RDONLY);
 	if (fd == -1)
@@ -213,12 +231,10 @@ int	main(void)
 		perror("ERROR AL ABRIR EL ARCHIVO");
 		return (1);
 	}
-	while (i < 5)
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		line = get_next_line(fd);
-		printf("%s", line);
+		printf(" -> %s", line);
 		free(line);
-		i++;
 	}
 	close(fd);
 	return (0);
