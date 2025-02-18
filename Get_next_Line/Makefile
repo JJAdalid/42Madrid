@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=42 -I.
 SRC = get_next_line.c get_next_line_utils.c
 BSRC = 
 

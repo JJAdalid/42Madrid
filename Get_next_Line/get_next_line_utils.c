@@ -6,7 +6,7 @@
 /*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:19:30 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/16 20:17:20 by juanje           ###   ########.fr       */
+/*   Updated: 2025/02/18 16:22:36 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -30,17 +32,20 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char			*dest;
-	size_t			leng;
-	unsigned int	i;
-	unsigned int	j;
+	char	*dest;
+	size_t	i;
+	size_t	j;
 
-	if (!s1 && !s2)
-		return (NULL);
-	leng = ft_strlen(s1) + ft_strlen(s2);
-	dest = (char *)malloc(sizeof(char) * (leng + 1));
-	if (dest == NULL)
-		return (0);
+	if (!s1)
+	{
+		s1 = malloc(sizeof(char) + 1);
+		if (!s1)
+			return (0);
+		s1[0] = 0;
+	}
+	dest = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if (!dest)
+		return (ft_free(&s1));
 	i = 0;
 	while (s1[i] != '\0')
 	{
@@ -61,6 +66,8 @@ size_t	ft_strlen(const char *nptr)
 {
 	unsigned int	i;
 
+	if (!nptr)
+		return (0);
 	i = 0;
 	while (nptr[i] != '\0')
 	{
@@ -91,9 +98,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	i = 0;
 	while (len--)
-	{
 		substr[i++] = s[start++];
-	}
 	substr[i] = '\0';
 	return (substr);
 }
