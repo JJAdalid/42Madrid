@@ -6,7 +6,7 @@
 /*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:19:30 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/18 16:22:36 by juanje           ###   ########.fr       */
+/*   Updated: 2025/02/18 19:27:07 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	i;
 	size_t	j;
 
-	if (!s1)
-	{
-		s1 = malloc(sizeof(char) + 1);
-		if (!s1)
-			return (0);
-		s1[0] = 0;
-	}
+	if (!s1 || !s2)
+		return (0);
 	dest = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!dest)
 		return (ft_free(&s1));
@@ -59,6 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	dest[i + j] = '\0';
+	free(s1);
 	return (dest);
 }
 
@@ -101,4 +97,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr[i++] = s[start++];
 	substr[i] = '\0';
 	return (substr);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:24:31 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/18 16:30:01 by juanje           ###   ########.fr       */
+/*   Updated: 2025/02/18 18:33:45 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_readfile(int fd, char *buffer);
 char	*ft_getline(char *buffer);
+void	*ft_calloc(size_t count, size_t size);
 
 #endif	
