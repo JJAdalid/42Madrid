@@ -6,19 +6,28 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:48:24 by juanje            #+#    #+#             */
-/*   Updated: 2025/03/06 17:07:41 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:25:25 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_type_format(const char *str, va_list args, size_t *count)
+void	ft_type_format(char c, va_list args, size_t *count)
 {
-	if (*str == 'c')
+	if (c == 'c')
 		ft_putchar(va_arg(args, int), count);
-	else if (*str == 's')
+	else if (c == 's')
 		ft_putstr(va_arg(args, char *), count);
-	return (0);
+	else if (c == 'd')
+			ft_putnbr(va_arg(args, int), count);
+	/* else if (*str == 'p')
+		ft_printptr(va_arg(args, void *), count);
+	else if (*str == 'd' || *str == 'i')
+		ft_putnbr(va_arg(args, int), count);
+	else if (*str == 'u')
+		ft_print.....
+	else if (*str == 'x')
+		ft_print.... */
 }
 
 int	ft_printf(const char *str, ...)
@@ -36,11 +45,10 @@ int	ft_printf(const char *str, ...)
 		{
 			str++;
 			ft_type_format(*str, args, &count);
-
 		}
 		else
 		{
-			write(1, &str, 1);
+			write(1, str, 1);
 			count++;
 			str++;
 		}
