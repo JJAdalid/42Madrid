@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_digit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:49:20 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/03/07 13:04:27 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:09:02 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 void	ft_putnbr(int n, size_t	*count)
 {
@@ -33,4 +43,32 @@ void	ft_putnbr(int n, size_t	*count)
 	}
 	num = (n % 10) + '0';
 	(*count) += write (1, &num, 1);
+}
+
+void	ft_putnbr_base(unsigned long n, char *base, size_t *count)
+{
+	unsigned int	base_len;
+	char			num;
+
+	base_len = ft_strlen(base);
+	if (n >= base_len)
+	{
+		ft_putnbr_base(n / base_len, base, count);
+	}
+	num = base[n % base_len];
+	(*count) += write(1, &num, 1);
+}
+
+void	ft_put_ptr(void *ptr, size_t *count)
+{
+	unsigned long	n;
+
+	n = (unsigned long)ptr;
+	if (n == 0)
+	{
+		(*count) += write(1, "(nil)", 5);
+		return ;
+	}
+	(*count) += write(1, "0x", 2);
+	ft_putnbr_base(n, "0123456789abcdef", count);
 }

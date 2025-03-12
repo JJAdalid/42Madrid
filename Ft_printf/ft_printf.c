@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:48:24 by juanje            #+#    #+#             */
-/*   Updated: 2025/03/07 13:25:25 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:58:29 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,23 @@ void	ft_type_format(char c, va_list args, size_t *count)
 		ft_putchar(va_arg(args, int), count);
 	else if (c == 's')
 		ft_putstr(va_arg(args, char *), count);
-	else if (c == 'd')
-			ft_putnbr(va_arg(args, int), count);
-	/* else if (*str == 'p')
-		ft_printptr(va_arg(args, void *), count);
-	else if (*str == 'd' || *str == 'i')
+	else if (c == 'p')
+		ft_put_ptr(va_arg(args, void *), count);
+	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(args, int), count);
-	else if (*str == 'u')
-		ft_print.....
-	else if (*str == 'x')
-		ft_print.... */
+	else if (c == 'u')
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789", count);
+	else if (c == 'x')
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef", count);
+	else if (c == 'X')
+		ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF", count);
+	else if (c == '%')
+		ft_putchar('%', count);
+	else
+	{
+		ft_putchar('%', count);
+		ft_putchar(c, count);
+	}
 }
 
 int	ft_printf(const char *str, ...)
@@ -45,6 +52,7 @@ int	ft_printf(const char *str, ...)
 		{
 			str++;
 			ft_type_format(*str, args, &count);
+			str++;
 		}
 		else
 		{

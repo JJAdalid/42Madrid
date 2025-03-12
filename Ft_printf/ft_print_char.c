@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:19:16 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/03/07 13:18:08 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:01:40 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_putstr(const char *str, size_t *count)
 {
 	if (!str)
 	{
-		write(1, "ERROR", 5);
-		(*count) += 5;
+		write (1, "(null)", 6);
+		(*count) += 6;
 		return ;
 	}
 	while (*str)
