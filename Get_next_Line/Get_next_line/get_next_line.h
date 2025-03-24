@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:24:31 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/18 18:33:45 by juanje           ###   ########.fr       */
+/*   Updated: 2025/02/20 17:45:17 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stddef.h>
 # include <unistd.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 42
 # endif 
 
 char	*ft_free(char **buffer);
