@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/03/28 17:36:13 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:02:52 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,10 @@
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
+
+typedef struct s_game
+{
+	int	x;
+	int	y;
+
+}	t_game;
