@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:18:43 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/08 16:50:27 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:35:54 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_free(char **buffer)
 {
