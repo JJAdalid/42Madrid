@@ -6,12 +6,15 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:29:37 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/02/20 18:15:32 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:51:06 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif 
 
 # include <stdio.h>
 # include <stddef.h>
@@ -69,4 +72,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*ft_readfile(int fd, char *buffer);
+char	*ft_getline(char *buffer);
+char	*ft_free(char **buffer);
+char	*get_next_line(int fd);
+char	*ft__gnl_strjoin(char *s1, char *s2);
+
 #endif

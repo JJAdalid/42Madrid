@@ -6,15 +6,17 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/01 13:02:52 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:04:19 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "./libft/libft.h"
-
+# include "./libft/libft.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 # define ESC 65307
 # define UP_ARROW 65362
@@ -32,3 +34,12 @@ typedef struct s_game
 	int	y;
 
 }	t_game;
+
+typedef struct s_player
+{
+	int	x;
+	int	y;
+}	t_player;
+
+
+#endif
