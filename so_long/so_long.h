@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/08 17:04:19 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:57:01 by juanje           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <X11/keysym.h>
+
 
 # define ESC 65307
 # define UP_ARROW 65362
@@ -28,18 +30,23 @@
 # define S_KEY 115
 # define D_KEY 100
 
-typedef struct s_game
-{
-	int	x;
-	int	y;
-
-}	t_game;
-
 typedef struct s_player
 {
 	int	x;
 	int	y;
 }	t_player;
+
+typedef struct s_game
+{
+	void			*mlx_ptr;
+	void			*mlx_win;
+	int				x;
+	int				y;
+	t_player		*player;
+
+}	t_game;
+
+
 
 
 #endif
