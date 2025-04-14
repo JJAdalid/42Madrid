@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/14 16:57:01 by juanje           ###   ########.fr       */
+/*   Updated: 2025/04/14 19:21:37 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <X11/keysym.h>
+# include "../minilibx-linux/mlx.h"
 
 
 # define ESC 65307
@@ -46,7 +47,7 @@ typedef struct s_game
 
 }	t_game;
 
-
+int	handle_input(int keysym, t_game *game);
 
 
 #endif

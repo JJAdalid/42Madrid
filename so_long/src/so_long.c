@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:30:05 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/14 17:15:54 by juanje           ###   ########.fr       */
+/*   Updated: 2025/04/14 19:29:08 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	handle_input(int keysym, t_game *game)
 		free(game->mlx_ptr);
 		exit(1);
 	}
-	printf("The %d key (ESC) has been pressed\n\n", keysym);
+	printf("The %d key has been pressed\n\n", keysym);
 	return (0);
 }
 
@@ -40,9 +40,9 @@ int	main(void)
 		free(game.mlx_ptr);
 	}
 
-	mlx_loop(game.mlx_ptr);
 
 	mlx_key_hook(game.mlx_win, handle_input, &game);
+	mlx_loop(game.mlx_ptr);
 	mlx_destroy_display(game.mlx_ptr);
 	free(game.mlx_ptr);
 
