@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/30 17:17:51 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:09:15 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include "./libft/libft.h"
 # include "./minilibx-linux/mlx.h"
-# include "./minilibx-linux/mlx_int.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <X11/keysym.h>
 
 # define ESC 65307
@@ -58,6 +58,8 @@ typedef struct s_game
 	int			collectibles;
 	int			collected;
 	int			moves;
+	int			p_found;
+	int			e_found;
 	t_object	object;
 }	t_game;
 
@@ -65,4 +67,7 @@ int		handle_input(int keysym, t_game *game);
 int		check_argv(char *av, t_game *game);
 void	read_file(char *filename, t_game *game);
 void	close_window(t_game *game);
+void	ft_error(char *message, t_game *game);
+void	free_map(t_game *game);
+void	pos_elements(t_game *game);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:30:05 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/05/08 11:59:04 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:07:07 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int ac, char **av)
 	if (!check_argv(av[1], &game))
 		ft_error("El mapa debe tener extensión .ber\n", NULL);
 	read_file(av[1], &game);
-	init_elements(&game);
 	game.mlx_ptr = mlx_init();
 	if (!game.mlx_ptr)
 		ft_error("mlx_init falló", &game);
