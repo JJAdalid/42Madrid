@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/08 14:07:28 by jadalid-          #+#    #+#              #
-#    Updated: 2025/04/22 17:29:40 by jadalid-         ###   ########.fr        #
+#    Created: 2025/04/23 15:46:34 by jadalid-          #+#    #+#              #
+#    Updated: 2025/05/08 13:19:25 by jadalid-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 
-SRCS = ./src/check_map.c
+SRCS = ./src/check_map.c ./src/check_map.c ./src/ft_errors.c ./src/validate_map.c 
 
 INCLUDES = -I include ./libft/libft.a -Iminilibx-linux -Lminilibx-linux -lmlx -lXext -lX11 -lm -lbsd
 

@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/22 17:33:58 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:17:51 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,38 @@
 # define S_KEY 115
 # define D_KEY 100
 
-typedef struct s_player
+typedef struct s_object
 {
-	int	x;
-	int	y;
-}	t_player;
+	void	*player;
+	void	*collectable;
+	void	*wall;
+	void	*exit;
+	void	*floor;
+}	t_object;
 
 typedef struct s_game
 {
-	void			*mlx_ptr;
-	void			*mlx_win;
-	int				x;
-	int				y;
-	t_player		*player;
-
+	void		*mlx_ptr;
+	void		*mlx_win;
+	int			x;
+	int			y;
+	char		**map;
+	int			rows;
+	int			cols;
+	int			win_width;
+	int			win_height;
+	int			player_x;
+	int			player_y;
+	int			exit_x;
+	int			exit_y;
+	int			collectibles;
+	int			collected;
+	int			moves;
+	t_object	object;
 }	t_game;
 
-int	handle_input(int keysym, t_game *game);
-int	check_argv(char *av, char *extension);
-
-
+int		handle_input(int keysym, t_game *game);
+int		check_argv(char *av, t_game *game);
+void	read_file(char *filename, t_game *game);
+void	close_window(t_game *game);
 #endif
