@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:16:50 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/05/08 17:13:51 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:54:13 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	read_file(char *filename, t_game *game)
 	i = 0;
 	game->rows = ft_count_rows(filename);
 	if (game->rows <= 0)
-		ft_error("Error reading file", &game);
+		ft_error("Error al leer el archivo", &game);
 	game->map = malloc(sizeof(char *) * (game->rows + 1));
 	if (!game->map)
-		ft_error("Memory allocation error", &game);
+		ft_error("Error al lojar memoria", &game);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		ft_error("Error opening file", &game);
+		ft_error("Error al abrir el arcvhivo", &game);
 	while ((line = get_next_line(fd)))
 		game->map[i++] = line;
 	game->map[i] = NULL;
@@ -61,7 +61,7 @@ void	read_file(char *filename, t_game *game)
 	game->win_height = game->rows * 64;
 }
 
-void	pos_element_cell(t_game *game, int x, int y)
+void	count_elements(t_game *game, int x, int y)
 {
 	char	c;
 
@@ -90,13 +90,14 @@ void	pos_elements(t_game *game)
 
 	game->p_found = 0;
 	game->e_found = 0;
+	game->collectibles = 0;
 	y = 0;
 	while (y < game->rows)
 	{
 		x = 0;
 		while (x < game->cols)
 		{
-			pos_element_cell(game, x, y);
+			count_elements(game, x, y);
 			x++;
 		}
 		y++;
