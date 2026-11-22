@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:22:10 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/30 17:17:51 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:19:01 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include "./libft/libft.h"
 # include "./minilibx-linux/mlx.h"
-# include "./minilibx-linux/mlx_int.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <X11/keysym.h>
 
 # define ESC 65307
@@ -44,8 +44,6 @@ typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
-	int			x;
-	int			y;
 	char		**map;
 	int			rows;
 	int			cols;
@@ -58,11 +56,22 @@ typedef struct s_game
 	int			collectibles;
 	int			collected;
 	int			moves;
-	t_object	object;
+	int			p_found;
+	int			e_found;
+	t_object	*object;
 }	t_game;
 
-int		handle_input(int keysym, t_game *game);
-int		check_argv(char *av, t_game *game);
+int		handle_key(int keysym, t_game *game);
+int		close_window(t_game *game);
+int		check_argv(char *av);
+int		check_possible(t_game *game, char object);
 void	read_file(char *filename, t_game *game);
-void	close_window(t_game *game);
+void	ft_error(char *message, t_game *game);
+void	free_map(t_game *game);
+void	pos_elements(t_game *game);
+void	load_sprites(t_game *game);
+void	draw_map(t_game *game);
+void	validate_map(t_game *game);
+void	free_game(t_game *game);
+int		check_rectangular(t_game *game);
 #endif

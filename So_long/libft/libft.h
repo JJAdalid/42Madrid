@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:29:37 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/25 12:49:38 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/20 14:50:21 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -57,10 +57,19 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+//ft_gnl
 char	*ft_readfile(int fd, char *buffer);
 char	*ft_getline(char *buffer);
 char	*ft_free(char **buffer);
 char	*get_next_line(int fd);
 char	*ft_gnl_strjoin(char *s1, char *s2);
+//ft_printf
+void	ft_putchar(int c, size_t *count);
+void	ft_putstr(const char *str, size_t *count);
+void	ft_putnbr(int n, size_t	*count);
+void	ft_type_format(char c, va_list args, size_t *count);
+void	ft_putnbr_base(unsigned long n, char *base, size_t *count);
+void	ft_put_ptr(void *ptr, size_t *count);
+int		ft_printf(const char *str, ...);
 
 #endif

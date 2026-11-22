@@ -6,36 +6,42 @@
 #    By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 15:46:34 by jadalid-          #+#    #+#              #
-#    Updated: 2025/04/23 15:46:45 by jadalid-         ###   ########.fr        #
+#    Updated: 2025/05/23 15:19:00 by jadalid-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-FLAGS = -Wall -Wextra -Werror 
-
 OBJS = $(SRCS:.c=.o)
 
-SRCS = ./src/check_map.c
+SRCS =  ./src/render_objets.c \
+		./src/read_map.c      \
+		./src/ft_errors.c 	  \
+		./src/validate_map.c  \
+		./src/validate_path.c \
+		./src/moves.c         \
 
 INCLUDES = -I include ./libft/libft.a -Iminilibx-linux -Lminilibx-linux -lmlx -lXext -lX11 -lm -lbsd
+
+LDFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3 
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 			@make -C libft
 			@make -C minilibx-linux
-			@gcc -fsanitize=address -fsanitize=leak ./src/so_long.c $(SRCS) $(INCLUDES) -o $(NAME)
+			$(CC)  so_long.c $(LDFLAGS) $(SRCS) $(INCLUDES) -o $(NAME)
+			
+			
 
 clean:
-		@make clean -C libft
-		@make clean -C minilibx-linux
+		$(MAKE) clean -C libft
+		$(MAKE) clean -C minilibx-linux
 		rm -rf $(OBJS)
 
-fclean:
-		@make fclean -C libft
-		@make clean -C minilibx-linux
-		@rm -rf $(OBJS)
+fclean: clean
+		$(MAKE) fclean -C libft
+		$(MAKE) clean -C minilibx-linux
 		@rm -rf $(NAME)
 
 re: fclean all

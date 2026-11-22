@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanje <juanje@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:25:04 by juanje            #+#    #+#             */
-/*   Updated: 2025/03/12 16:00:22 by juanje           ###   ########.fr       */
+/*   Updated: 2025/05/16 13:12:32 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdarg.h>
-//<stdin.h> uintptr_t para punteros!
 
 size_t		ft_strlen(const char *str);
 void		ft_putchar(int c, size_t *count);

@@ -6,7 +6,7 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 17:32:17 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/05/08 12:09:40 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/23 15:19:02 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,11 @@ int	check_elements(t_game *game, int p_found, int e_found, int c_found)
 
 void	validate_map(t_game *game)
 {
-	if (!check_rectangular(game))
-		ft_error("Map is not rectangular", game);
 	if (!check_walls(game))
-		ft_error("Map is not surrounded by walls", game);
+		ft_error("El mapa no esta rodeado de muros", game);
 	if (!check_elements(game, 0, 0, 0))
-		ft_error("Map does not contain required elements", game);
+		ft_error("El mapa no contiene los elementos necesarios", game);
+	if (!check_possible(game, 'C') || !check_possible(game, 'E'))
+		ft_error("El player no puede llegar a todas las monedas o la salida", \
+			game);
 }

@@ -6,12 +6,11 @@
 /*   By: jadalid- <jadalid-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:19:30 by jadalid-          #+#    #+#             */
-/*   Updated: 2025/04/25 12:57:42 by jadalid-         ###   ########.fr       */
+/*   Updated: 2025/05/21 14:41:19 by jadalid-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*ft_gnl_strjoin(char *s1, char *s2)
 {
@@ -40,48 +39,3 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 	free(s1);
 	return (dest);
 }
-
-
-/* char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	i;
-
-	if (!s)
-		return (0);
-	if (start > ft_strlen(s))
-	{
-		substr = malloc(sizeof(char) * (1));
-		if (!substr)
-			return (NULL);
-		substr[0] = '\0';
-		return (substr);
-	}
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (0);
-	i = 0;
-	while (len--)
-		substr[i++] = s[start++];
-	substr[i] = '\0';
-	return (substr);
-} */
-
-/* void	*ft_calloc(size_t count, size_t size)
-{
-	char	*ptr;
-	size_t	i;
-
-	i = 0;
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	while (i < count * size)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return (ptr);
-} */
