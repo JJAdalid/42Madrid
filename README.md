@@ -8,9 +8,10 @@ Repositorio con los proyectos desarrollados durante el Cursus de **42 Madrid** (
 
 | Proyecto | Descripción | Conceptos clave |
 | :--- | :--- | :--- |
-| **[Libft](./Libft)** | Recreación desde cero de funciones estándar de la biblioteca de C (`libc`), además de utilidades adicionales para manipulación de cadenas, memoria y listas enlazadas. | Gestión de memoria dinámica (`malloc`/`free`), punteros, aritmética de punteros, estructuras de datos y creación de librerías estáticas (`.a`). |
-| **[ft_printf](./Ft_printf)** | Reimplementación de la función `printf()` de la librería estándar `stdio.h`, soportando las conversiones `c`, `s`, `p`, `d`, `i`, `u`, `x`, `X` y `%`. | Funciones variádicas (`va_list`, `va_start`, `va_arg`, `va_end`), formateo de cadenas y conversión de bases numéricas. |
-| **[get_next_line](./Get_next_Line)** | Función capaz de leer y devolver una línea completa cada vez desde un descriptor de archivo (*file descriptor*), gestionando lecturas sucesivas hasta el final del archivo. | Variables estáticas (*static variables*), manipulación de *buffers*, lectura de archivos (`read`) y prevención de *memory leaks*. |
+| **[Libft](https://github.com/JJAdalid/JJAdalid/tree/master/Libft)** | Recreación desde cero de funciones estándar de la biblioteca de C (`libc`), además de utilidades adicionales para manipulación de cadenas, memoria y listas enlazadas. | Gestión de memoria dinámica (`malloc`/`free`), punteros, aritmética de punteros, estructuras de datos y creación de librerías estáticas (`.a`). |
+| **[ft_printf](https://github.com/JJAdalid/JJAdalid/tree/master/Ft_printf)** | Reimplementación de la función `printf()` de la librería estándar `stdio.h`, soportando las conversiones `c`, `s`, `p`, `d`, `i`, `u`, `x`, `X` y `%`. | Funciones variádicas (`va_list`, `va_start`, `va_arg`, `va_end`), formateo de cadenas y conversión de bases numéricas. |
+| **[get_next_line](https://github.com/JJAdalid/JJAdalid/tree/master/Get_next_Line)** | Función capaz de leer y devolver una línea completa cada vez desde un descriptor de archivo (*file descriptor*), gestionando lecturas sucesivas hasta el final del archivo. | Variables estáticas (*static variables*), manipulación de *buffers*, lectura de archivos (`read`) y prevención de *memory leaks*. |
+| **[so_long](https://github.com/JJAdalid/JJAdalid/tree/master/So_long)** | Desarrollo de un videojuego 2D sencillo con vista cenital utilizando la librería gráfica `MiniLibX`, donde el jugador debe recoger todos los objetos del mapa y alcanzar la salida. | Programación gráfica básica, gestión de eventos (*hooks* de teclado y ventana), renderizado de *sprites* y validación de mapas mediante algoritmos de búsqueda de caminos (*flood fill*). |
 
 ---
 
@@ -31,6 +32,11 @@ Implementación modular de salida formateada por consola sin recurrir a la gesti
 Desarrollo de una función con el prototipo `char *get_next_line(int fd);` que permite leer archivos de texto línea por línea independientemente del tamaño definido en `BUFFER_SIZE`.
 * Persistencia de datos residuales entre llamadas mediante memoria estática.
 * Soporte para lectura desde entrada estándar (`stdin`) y múltiples descriptores de archivo simultáneos (parte bonus).
+
+### 4. so_long
+Primer proyecto gráfico del cursus desarrollado con `MiniLibX`. El programa recibe como argumento un mapa en formato `.ber` y genera la ventana interactiva correspondiente.
+* **Parseo y validación:** Comprobación de muros cerrados, forma rectangular, presencia de elementos obligatorios y verificación de ruta válida (*flood fill*) hacia todos los coleccionables y la salida.
+* **Interactividad y renderizado:** Movimiento del personaje por turnos, conteo de pasos en terminal o pantalla y liberación limpia de imágenes y ventanas al cerrar el juego.
 
 ---
 
